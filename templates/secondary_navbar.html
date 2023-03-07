@@ -1,0 +1,88 @@
+<style>
+	#sm-logo-out {
+		position: relative;
+		background-color: #000;
+		width: 38px;
+		height: 38px;
+		top: 50%;
+	}
+
+	#sm-logo-in {
+		position: relative;
+		background-color: #fff;
+		width: 12px;
+		height: 12px;
+		top: 18%;
+		left: 50%;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.container,
+		.container-sm {
+			max-width: 100%;
+		}
+		
+	}
+
+</style>
+
+<nav class="navbar sticky-top navbar-expand-lg py-1 align-items-start pt-lg-4">
+	<div class="container px-4 sticky-top">
+		<a href="{% url 'home-view' %}" class="navbar-brand m-0">
+			<div id="sm-logo-out">
+				<div id="sm-logo-in"></div>
+			</div>
+		</a>
+		<button
+			class="navbar-toggler d-lg-none"
+			type="button"
+			data-bs-toggle="offcanvas"
+			data-bs-target="#offcanvasNavbar"
+			aria-controls="offcanvasNavbar"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div
+			class="offcanvas offcanvas-end d-lg-none"
+			tabindex="-1"
+			id="offcanvasNavbar"
+			aria-labelledby="offcanvasNavbarLabel"
+		>
+			<div class="offcanvas-header">
+				<button
+					type="button"
+					class="btn-close"
+					data-bs-dismiss="offcanvas"
+					aria-label="Close"
+				>
+				</button>
+			</div>
+
+			<div class="offcanvas-body">
+				<form
+				method="get"
+				action="/search/"
+				class="d-lg-none col-12 col-lg-3 mb-lg-0 pb-4"
+			>
+				<input
+					type="text"
+					name="q"
+					class="form-control rounded-pill"
+					placeholder="Search..."
+					id="id_q"
+				/>
+			</form>
+
+			<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+				<li class="d-block d-lg-none nav-item">
+					{% sidebar_tag_cloud %}
+					<div class="border-bottom mb-4">
+						{% include 'footer.html' %}
+					</div>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<div> </div>

@@ -1,0 +1,91 @@
+{% extends '../3-col-template.html' %}
+
+{% block content-left %}
+{% include '../secondary_navbar.html' %}
+{% endblock %}
+
+{% block content-mid %}
+
+<style>
+    .blogger h1 {
+        letter-spacing: -0.6px;
+        line-height: 35px;
+    }
+
+    .post h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 0.3px;
+    }
+
+    .post p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.0625rem;
+        line-height: 32px;
+        letter-spacing: 0.5px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .blogger {
+            padding: 0 12px 0 12px;
+        }
+        .post h1 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+        }
+    
+        .post p {
+            font-family: 'Poppins', sans-serif;
+            font-size: .8rem;
+            line-height: 26px;
+            letter-spacing: 0.5px;
+        }
+       }
+</style>
+
+<div class="blogger center mx-auto" style="max-width: 683px;">
+
+    <div class="text-muted mt-5 "> {{ post.author }} </div>
+    <div class="text-muted"> {{ post.updated_at|date:"M d Y" }} </div>
+    <h1 class="fw-bold py-3"> {{ post.title }} </h1>
+    <h2 class="text-muted pb-3 fs-4"> {{ post.subtitle }} </h2>
+    <div class="post">
+
+        {{ post.content | markdown | safe }}
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block content-right %}
+    {% sidebar_tag_cloud %}
+
+    <div class="col-12 border-bottom pb-2">
+        <div class="fw-bold pb-2">More from {{ post.author }}</div>
+        {% for post in related %}
+        {% if post.status == 'published' %}
+
+            <a class="text-decoration-none text-dark" href="{{ post.get_absolute_url }}">
+                <div class="card mb-3 border-0 ps-1">
+                    <div class="row">
+                        <div class="col-9 pe-2">
+                            <span class="small">{{ post.author }}</span>
+                            <h1 class="mb-1 small">{{ post.title|truncatechars:80 }}</h1>
+                        </div>
+                        <div class="col-3 pt-3">
+                            <img
+                                src="https://picsum.photos/205/115"
+                                alt=""
+                                class="img-fluid float-end"
+				            />
+                        </div>
+                    </div>
+                    
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

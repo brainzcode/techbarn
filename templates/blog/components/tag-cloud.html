@@ -1,0 +1,29 @@
+<style>
+	.tag-hover {
+		color: #000;
+	}
+
+	.tag-hover:hover {
+		background-color: #000;
+		color: #fff;
+		transition: ease-in 300ms;
+	}
+</style>
+
+
+
+
+<div class="mb-4">
+	<div class="border-bottom">
+		<div class="pb-4">
+            <h4 class="pb-2 fw-bold fs-4">DISCOVER TOPICS</h4>
+			{% for tag in tags %}
+				
+				<a href="{% url 'post_by_tag' tag.slug %}" class="tag-hover text-decoration-none fs-5  border border-dark p-1 px-3 mb-2 me-1 rounded-pill" style="display: inline-block;"> 
+                    {{ tag.name }} 
+                </a>
+			
+			{% endfor %}
+		</div>
+	</div>
+</div>

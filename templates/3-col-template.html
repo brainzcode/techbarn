@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+{% block content %}
+
+<style>
+    @media only screen and (min-width: 992px) {
+        .col-navbar {
+            flex: 0 0 80px;
+            display: flex;
+            justify-content: center;
+            border-right: 1px solid #dee2e6;
+        }
+
+        .border-right {
+            border-right: 1px solid #dee2e6;
+        }
+    }
+
+    
+</style>
+
+<div class="container three-col" style="max-width: 1500px !important;">
+
+    <div class="row">
+        <div class="col-navbar sticky-top bg-light">{% block content-left %}{% endblock %}</div>
+        <div class="border-right col-12 col-lg-7 pt-3 px-4 px-md-4">{% block content-mid %}{% endblock %}</div>
+        <div class="d-none d-lg-block mt-5 pt-3 col-lg-3 ps-4">
+            <div class="border-bottom">
+                {% include './blog/components/search-bar.html' %}
+            </div>
+            <div class="pt-4">
+
+                {% block content-right %}{% endblock %}
+            </div>
+            {% include 'footer.html' %}
+        </div>
+        
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Poppins:wght@100;200;300;400;600;700&family=Roboto:wght@100;300;400;500;700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Explora&family=Lato:wght@400;700;900&family=Poppins:wght@500&family=Satisfy&display=swap');
+
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+.test {
+	font-family: 'Lato', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Satisfy', cursive;
+}
+
+.logo {
+	font-family: 'Archivo', sans-serif;
+}
+
+
+
+html,
+body {
+	font-family: 'Barlow', sans-serif;
+}
+
+ 
+
+p {
+	font-family: 'Poppins', sans-serif;
+}
+
+
+.vh-70 {
+	height: 70vh;
+}
+
+.infscroll-title {
+	font-size: 22px;
+	letter-spacing: -0.6px;
+}
+
+
+
+.logo > img {
+	width: 2rem;
+	height: 2rem;
+}
+
+.tech {
+	font-family: 'Barlow', sans-serif;
+	font-size: 8rem;
+	font-weight: 300;
+}
+
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #fff, #f4f4f4, #f2f2f2);
+    height: 300vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 1.5rem;
+	z-index: 99999;
+}
+
+#svg {
+    height: 92px;
+    width: 510px;
+	position: absolute;
+	top: 40vh;
+    stroke: #000;
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-dasharray: 4500;
+    animation: draw 12s ease;
+}
+
+@keyframes draw {
+    0%{
+        stroke-dashoffset: 4500;
+    }
+    100%{
+        stroke-dashoffset: 0;
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+	.infscroll-title {
+		font-size: 0.9375rem;
+		letter-spacing: -0px;
+	}
+
+	.infscroll-author,
+	.infscroll-date {
+		font-size: 0.8125rem;
+	}
+
+    .logo > img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+	#svg {
+		height: 62px;
+		width: 310px;
+
+	}
+}

@@ -1,0 +1,23 @@
+{% extends '../3-col-template.html' %}
+
+{% block content-left %}
+{% include '../secondary_navbar.html' %}
+{% endblock %}
+
+{% block content-mid %}
+<div style="max-width: 683px;" class="center mx-auto pt-5 px-3">
+    <h1 class="fs-1 fw-bold pb-5">{{ tag|title }}</h1>
+    {% if posts %}
+    {% include 'blog/components/post-list-elements-tags.html' %}
+    {% else %}
+    <h2>No Posts Available yet for this Topic.</h2>
+    {% endif %}  
+</div> 
+
+
+
+{% endblock %}
+
+{% block content-right %}
+    {% sidebar_tag_cloud %}
+{% endblock %}
