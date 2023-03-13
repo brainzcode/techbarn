@@ -79,3 +79,19 @@ class PostSearchView(ListView):
         if self.request.htmx:
             return 'blog/components/post-list-elements-search.html'
         return 'blog/search.html'
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def topics(request):
+    return render(request, 'topics.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
+
+
+def events(request):
+    return render(request, 'events.html')

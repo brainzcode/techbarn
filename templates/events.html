@@ -1,0 +1,18 @@
+{% extends '3-col-template.html' %}
+
+
+
+{% block content-left %}
+{% include 'secondary_navbar.html' %}
+{% endblock %}
+
+{% block content-mid %}
+<h1>Events</h1>
+
+
+
+{% endblock %}
+
+{% block content-right %}
+    {% sidebar_tag_cloud %}
+{% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 
-<nav class="navbar navbar-expand-lg sticky-top bg-light">
+<nav id="nav" class="navbar navbar-expand-lg sticky-top bg-light">
 	<div class="container">
 		<a class="navbar-brand logo fs-3" href="{% url 'home-view' %}">
 			<svg
@@ -65,6 +65,10 @@
 						id="id_q"
 					/>
 				</form>
+				<!-- <button onclick="darkMode()">Toggle dark mode</button>
+				<div class="form-check form-switch">
+					<input type="checkbox" class="form-check-input" id="checkbox" onclick="setDarkMode()">
+				</div> -->
 			</div>
 		</div>
 	</div>
