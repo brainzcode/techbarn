@@ -1,0 +1,23 @@
+{% extends '3-col-template.html' %}
+
+
+
+{% block content-left %}
+{% include 'secondary_navbar.html' %}
+{% endblock %}
+
+{% block content-mid %}
+<div class="col-12 about">
+
+    <h1 class="mt-5">Discover All Topics</h1>
+    <div class="mt-5">
+        
+    </div>
+
+
+
+{% endblock %}
+
+{% block content-right %}
+    {% sidebar_tag_cloud %}
+{% endblock %}
