@@ -12,3 +12,5 @@ urlpatterns = [
     path('<slug:post>/', post_single, name='post_single'),
     path('tag/<slug:tag>/', TagListView.as_view(), name='post_by_tag'),
 ]
+
+

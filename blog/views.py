@@ -95,3 +95,23 @@ def contact(request):
 
 def events(request):
     return render(request, 'events.html')
+
+
+def error_400(request, exception=None):
+    data = {"exception": exception}
+    return render(request, 'blog/400.html', data)
+
+
+def error_403(request, exception=None):
+    data = {"exception": exception}
+    return render(request, 'blog/403.html', data)
+
+
+def error_404(request, exception=None):
+    data = {"exception": exception}
+    return render(request, 'blog/404.html', data)
+
+
+def error_500(request,  exception=None):
+    data = {"exception": exception}
+    return render(request, 'blog/500.html', data)
