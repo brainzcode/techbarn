@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,7 +48,27 @@ INSTALLED_APPS = [
     'taggit',
     'corsheaders',
     'admin_honeypot',
+    'ckeditor',
+    'ckeditor_uploader',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'extraPlugins': ','.join(
+            ['codesnippet']
+        )
+    }
+}
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,14 +158,14 @@ USE_TZ = True
 # ]
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     'blogapp/static',
 ]
 
 # Media files config
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

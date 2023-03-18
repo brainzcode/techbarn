@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.generic.list import ListView
 
 from .models import Post
-from .forms import PostSearchForm
+from .forms import PostSearchForm, CommentForm
 
 # Create your views here.
 
@@ -21,9 +21,28 @@ class HomeView(ListView):
 def post_single(request, post):
     post = get_object_or_404(Post, slug=post, status='published')
     related = Post.objects.filter(author=post.author)[:5]
+    comments = post.comments.filter(active=True)
+    new_comment = None
+    # Comment posted
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.post = post
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
     context = {
         'post': post,
         'related': related,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form
     }
 
     return render(request, 'blog/single.html', context)
