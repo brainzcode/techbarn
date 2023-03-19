@@ -52,8 +52,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'crispy_forms',
     'crispy_bootstrap5',
-    'cloudinary_storage',
-    'cloudinary',
 ]
 
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
