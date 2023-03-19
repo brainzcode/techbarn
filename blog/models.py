@@ -19,7 +19,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=250, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='post_author')
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(null=True, config_name='default')
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=options, default='draft')

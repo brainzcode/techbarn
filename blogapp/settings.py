@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'crispy_forms',
     'crispy_bootstrap5',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
@@ -60,7 +62,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
         'extraPlugins': ','.join(
-            ['codesnippet']
+            ['codesnippet', 'widget', 'html5video', 'youtube']
         )
     }
 }
@@ -158,10 +160,10 @@ USE_TZ = True
 # ]
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-    'blogapp/static',
-]
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static')
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Media files config
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
