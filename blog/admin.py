@@ -14,4 +14,8 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
 
 
-admin.site.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(Post, PostAdmin)

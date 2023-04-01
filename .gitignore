@@ -6,9 +6,18 @@ htmlcov/
 .coverage
 __pycache__
 .pytest_cache
-tests/
+
 db.sqlite3
 db.sqlite3-journal
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+uploads
+.env
+env
 
 
 
