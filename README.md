@@ -2,7 +2,7 @@
 
 ## A Blog that writes about Tech Related Topics, Events, Documentation Programing Paradigms, Concepts and Languages.
 
-#### [Brainzcode](https://www.brainzcode.io) is the sole author and developer of this project.
+#### [Brainzcode](https://www.brainzcode.com) is the sole author and developer of this project.
 
 ##### As a versatile Full Stack Web Developer, Technical Writer, and Python Developer, I bring a wealth of experience to every project. My proficiency in multiple programming languages, including Python Django, JavaScript, React, Angular, and NextJS, allows me to create robust and dynamic applications that meet the needs of businesses and users alike.
 
